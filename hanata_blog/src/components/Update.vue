@@ -63,7 +63,6 @@
             this.update=this.update.concat(res.data.list)
             this.count += res.data.list.length
             this.count
-            console.log(this.count);
             this.loading=false
           },3000)
         }

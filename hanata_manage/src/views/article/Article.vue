@@ -176,7 +176,6 @@
         }
         let {data:res} = await postRequest("article",Pageparams);
         if (res.code === 0) {
-          console.log(res.data);
           this.article = res.data;
           // return []
           // console.log(this.article);

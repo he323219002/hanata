@@ -103,7 +103,6 @@
     },
     methods: {
       async register() {
-        console.log(this.registerForm);
         let {data: res} = await postRequest('user/reg', this.registerForm);
         if (res.code === 0) {
           this.$message({
@@ -155,7 +154,6 @@
         }
       },
       handleAvatarSuccess(res, file) {
-        console.log(file);
         this.registerForm.avatar = picBaseURL + file.response.data.filePath;
       },
       beforeAvatarUpload(file) {

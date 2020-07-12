@@ -90,7 +90,6 @@
       async getDairyById(){
         let id = this.$store.state.dairyId;
         let {data:res} = await postRequest('dairy/show',{'id':id});
-        console.log(res);
         this.dairyForm.title=res.data.title
         this.dairyForm.content=res.data.content
         this.dairyForm.open=res.data.open

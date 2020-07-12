@@ -272,7 +272,6 @@
         formdata.append('fileType', "pic")
         this.img_file[pos] = $file;
         let {data: res} = await uploadRequest('upload/', formdata);
-        console.log(picBaseURL + res.data.filePath);
         this.$refs.md.$img2Url(pos, picBaseURL + res.data.filePath)
       },
       imgDel(pos) {
@@ -309,7 +308,6 @@
 
       async updateDairy() {
         let {data: res} = await postRequest('dairy/update', this.dairyForm);
-        console.log(this.dairyForm);
         if (res.code === 0) {
           this.$router.push({name: 'Dairy'})
         }
@@ -327,7 +325,6 @@
       async getDairyById(){
         let id = this.$store.state.dairyId;
         let {data:res} = await postRequest('dairy/show',{'id':id});
-        console.log(res);
         this.dairyForm.title=res.data.title
         this.dairyForm.content=res.data.content
         this.dairyForm.open=res.data.open
@@ -340,9 +337,7 @@
         let uploadFile = {
           "url":this.dialogImageUrl
         }
-        console.log(this.fileList);
         this.fileList.push(uploadFile)
-        console.log(this.fileList);
       },
 
       handleRemove(file, fileList) {
@@ -360,7 +355,6 @@
       },
 
       finishUpload(response, file, fileList) {
-        console.log(response);
         this.dairyForm.picId=file.response.data.uid
       },
     },
