@@ -34,6 +34,7 @@ build/
 *.yaml
 test/
 rabbitmq/
+tinymce/
 
 .DS_Store
 node_modules
@@ -57,3 +58,4 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
