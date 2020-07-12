@@ -1,0 +1,30 @@
+<template>
+  <div id="app" style="background-color: rgba(235, 235, 235, 0.08)">
+    <router-view/>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'app'
+}
+</script>
+
+<style>
+  html {
+    height: 100%;
+  }
+#app {
+  height: 100%;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+  body {
+    margin: 0;
+    height: 100%;
+  }
+
+</style>

@@ -1,0 +1,41 @@
+import Vue from 'vue'
+import {Container, Header, Main, Aside, Footer,Row,Col,Menu,Submenu,MenuItem,MenuItemGroup,
+RadioButton,RadioGroup,FormItem,Input,Form,Button,Message,Table,TableColumn,Popover,Tag,Pagination,
+Select,Option,DatePicker,TimePicker,Checkbox,CheckboxGroup,Switch,Radio,Popconfirm,Upload,Dialog,Tooltip} from "element-ui";
+
+Vue.use(Container)
+Vue.use(Header)
+Vue.use(Main)
+Vue.use(Aside)
+Vue.use(Footer)
+Vue.use(Row)
+Vue.use(Col)
+Vue.use(Submenu)
+Vue.use(RadioButton)
+Vue.use(RadioGroup)
+Vue.use(MenuItem)
+Vue.use(MenuItemGroup)
+Vue.use(Menu)
+Vue.use(FormItem)
+Vue.use(Input)
+Vue.use(Form)
+Vue.use(Button)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Popover)
+Vue.use(Tag)
+Vue.use(Pagination)
+Vue.use(DatePicker)
+Vue.use(TimePicker)
+Vue.use(Select)
+Vue.use(Checkbox)
+Vue.use(CheckboxGroup)
+Vue.use(Option)
+Vue.use(Popconfirm)
+Vue.use(Switch)
+Vue.use(Radio)
+Vue.use(Upload)
+Vue.use(Dialog)
+Vue.use(Tooltip)
+
+Vue.prototype.$message=Message

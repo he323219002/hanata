@@ -1,0 +1,36 @@
+{
+  "name": "hanata",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vue-cli-service serve",
+    "build": "vue-cli-service build"
+  },
+  "dependencies": {
+    "@tinymce/tinymce-vue": "^3.2.2",
+    "axios": "^0.19.2",
+    "core-js": "^3.6.5",
+    "element-ui": "^2.13.2",
+    "mavon-editor": "^2.9.0",
+    "tinymce": "^5.4.1",
+    "vue": "^2.6.11",
+    "vue-markdown": "^2.2.4",
+    "vue-router": "^3.2.0",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.10.3",
+    "@vue/cli-plugin-babel": "^4.4.0",
+    "@vue/cli-plugin-router": "^4.4.0",
+    "@vue/cli-service": "^4.4.0",
+    "babel-plugin-component": "^1.1.1",
+    "less": "^3.11.3",
+    "less-loader": "^6.1.2",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
