@@ -29,6 +29,8 @@
         fatherId:'',
         // replyUsername:'',
         placeholder:'快留下你的评论吧',
+        target:'1',
+        targetId:''
 
       }
     },
@@ -36,21 +38,27 @@
       async submit(id,kind){
         console.log(id);
         console.log(kind);
-        let {data:res} = await postRequest('comment/new',{'articleId':id,'content':this.content,'fatherId':this.fatherId,'kind':kind});
+        let {data:res} = await postRequest('comment/new',{'articleId':id,'content':this.content,'fartherId':this.fatherId,'kind':kind,'target':this.target,'targetId':this.targetId});
         checkToken(res)
         console.log(res);
         this.$router.go(0)
       },
-      focus(username,fatherId){
+      focus(username,fatherId,targetId){
         this.placeholder='回复： ' + username
-        this.content = '回复： ' + username
+        this.content = '回复'+username +':'
         this.$refs.focus_input.focus()
         this.$notify({
-          title:'输入回复内容吧',
+          title:'直接输入回复内容即可',
           position:'bottom-right'
         })
         this.fatherId=fatherId
-        console.log(this.fatherId);
+        this.target = '2'
+        if (targetId){
+          this.targetId=targetId
+        } else {
+          this.targetId=fatherId
+        }
+
       }
     },
     props:['id','kind'],

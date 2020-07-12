@@ -47,10 +47,10 @@ public class FileService {
     FileMapper fileMapper;
 
     public Map<String, Object> uploadFile(MultipartFile file, String fileType) throws CustomException {
-        User user = RequestContext.get().getUser();
-        if(user==null){
-            throw new CustomException("请先登录");
-        }
+//        User user = RequestContext.get().getUser();
+//        if(user==null){
+//            throw new CustomException("请先登录");
+//        }
 
         if (!CommonUtils.checkFileSize(file.getSize(),50,"M")){
             throw new CustomException("文件大与50M");
@@ -67,7 +67,7 @@ public class FileService {
         // upload
         String filePath = UploadUtil.upload(ossConfig, file, fileType,fileId);
 
-        fileMapper.uploadFile(fileId,datetime,user.getUid(),filePath,file.getName(),fileType);
+        fileMapper.uploadFile(fileId,datetime,"1",filePath,file.getName(),fileType);
 
         return new HashMap<String,Object>(){
             {

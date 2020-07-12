@@ -46,12 +46,14 @@ public class CommentController {
         String content = (String) reqMap.getOrDefault("content", "");
         String fartherId = (String) reqMap.getOrDefault("fartherId", "");
         String kind = (String) reqMap.getOrDefault("kind", "");
+        String target = (String) reqMap.getOrDefault("target", "1");
+        String targetId = (String) reqMap.getOrDefault("targetId", "");
 
         if (!kind.equals("1") && !kind.equals("2")){
             return new HaResponse(1,"参数错误");
         }
 
-        Integer count = commentService.newComment(articleId, content, fartherId,kind);
+        Integer count = commentService.newComment(articleId, content, fartherId,kind,target,targetId);
         if(count==1){
             return new HaResponse();
         }else{
@@ -112,11 +114,15 @@ public class CommentController {
             };
         }
 
+
         for (Comment comment : comments) {
             String deleted = comment.getDeleted();
             if (deleted.equals("1")){
                 comment.setContent("该评论已删除");
             }
+            String uid = comment.getUid();
+            List<Comment> appendingComments = commentService.listAppendingComment(uid);
+            comment.setAppending(appendingComments);
         }
 
         PageInfo<Comment> pageInfo = new PageInfo<>(comments);
@@ -162,6 +168,19 @@ public class CommentController {
         return new HaResponse(){
             {
                 setData(pageInfo);
+            }
+        };
+    }
+
+
+    @PassToken
+    @PostMapping("/append")
+    public HaResponse ListAppendComment(@RequestBody Map<String,Object> qMap) throws CustomException {
+        String commentId = (String) qMap.getOrDefault("commentId", "");
+        List<Comment> comments = commentService.listAppendingComment(commentId);
+        return new HaResponse(){
+            {
+                setData(comments);
             }
         };
     }

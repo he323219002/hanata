@@ -123,6 +123,7 @@ CREATE TABLE `comment` (
 	`fartherId` varchar(32) DEFAULT '',
 	`fartherContent` varchar(256) DEFAULT '',
 	`userName` varchar(32) DEFAULT '',
+	`target` varchar (1),
 	index (articleId)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 

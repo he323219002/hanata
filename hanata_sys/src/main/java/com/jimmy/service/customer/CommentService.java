@@ -45,7 +45,7 @@ public class CommentService {
     @Autowired
     CommentMapper commentMapper;
 
-    public Integer newComment(String articleId, String content, String fartherId,String kind) throws CustomException {
+    public Integer newComment(String articleId, String content, String fartherId,String kind,String target,String targetId) throws CustomException {
         User user = RequestContext.get().getUser();
 
         if (content.equals("")) {
@@ -71,6 +71,13 @@ public class CommentService {
             title = dairyById.getTitle();
         }
 
+        if (!targetId.equals("")){
+            Comment targetComment = commentMapper.getCommentById(targetId);
+            if (targetComment==null){
+                throw new CustomException("参数错误2");
+            }
+        }
+
 
         Date datetime = Calendar.getInstance().getTime();
         String uid = String.valueOf(mySnowFlake.nextId());
@@ -94,7 +101,7 @@ public class CommentService {
 
         commentMapper.addCommentCount(articleId);
 
-        return commentMapper.newComment(uid, datetime, user.getUid(), articleId, content, fartherId, user.getNickname(), user.getAvatar(), receiverId,fatherContent);
+        return commentMapper.newComment(uid, datetime, user.getUid(), articleId, content, fartherId, user.getNickname(), user.getAvatar(), receiverId,fatherContent,target,targetId);
 
     }
 
@@ -116,11 +123,11 @@ public class CommentService {
 
 
     public Page<Comment> listComment(String articleId) {
-        return commentMapper.listComment(articleId);
+        return commentMapper.listComment(articleId,"");
     }
 
     public Page<Comment> listDairyComment(String dairyId){
-        return commentMapper.listDairyComment(dairyId);
+        return commentMapper.listDairyComment(dairyId,"");
     }
 
 
@@ -130,6 +137,17 @@ public class CommentService {
         User user = RequestContext.get().getUser();
 
         return commentMapper.listMyComment(user.getUid());
+    }
+
+    public List<Comment> listAppendingComment(String id) throws CustomException {
+        Comment commentById = commentMapper.getCommentById(id);
+        if (commentById==null){
+            throw new CustomException("参数错误");
+        }
+
+        List<Comment> comments = commentMapper.listAppendingComment(id);
+        return comments;
+
     }
 
 }

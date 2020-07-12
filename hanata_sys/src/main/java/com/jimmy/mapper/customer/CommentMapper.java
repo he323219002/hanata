@@ -20,17 +20,18 @@ import java.util.List;
 @Mapper
 public interface CommentMapper {
 
-    @Insert("insert into comment (uid,createTime,createUserId,articleId,content,fartherId,userName,userAvatar,receiverId,fartherContent) values (#{uid},#{datetime},#{userId},#{articleId},#{content},#{fartherId},#{userName},#{userAvatar},#{receiverId},#{fatherContent})")
-    public Integer newComment(String uid, Date datetime,String userId,String articleId,String content,String fartherId,String userName,String userAvatar,String receiverId,String fatherContent);
+    @Insert("insert into comment (uid,createTime,createUserId,articleId,content,fartherId,userName,userAvatar,receiverId,fartherContent,target,targetId) " +
+            "values (#{uid},#{datetime},#{userId},#{articleId},#{content},#{fartherId},#{userName},#{userAvatar},#{receiverId},#{fatherContent},#{target},#{targetId})")
+    public Integer newComment(String uid, Date datetime,String userId,String articleId,String content,String fartherId,String userName,String userAvatar,String receiverId,String fatherContent,String target,String targetId);
 
     @Update("update comment set deleted=1,updateTime=#{updateTime},updateUserId=#{updateUserId} where uid=#{uid} and receiverId=#{updateUserId}")
     public Integer delComment(String uid,Date updateTime,String updateUserId);
 
-    @Select("select * from comment where articleId=#{articleId} order by createTime desc")
-    public Page<Comment> listComment(String articleId);
+    @Select("select * from comment where articleId=#{articleId} and targetId=#{targetId} order by createTime desc")
+    public Page<Comment> listComment(String articleId,String targetId);
 
-    @Select("Select * from comment where articleId=#{dairyId} order by createTime desc")
-    public Page<Comment> listDairyComment(String dairyId);
+    @Select("Select * from comment where articleId=#{dairyId} and targetId=#{targetId} order by createTime desc")
+    public Page<Comment> listDairyComment(String dairyId,String targetId);
 
     @Select("select * from comment where uid=#{uid} and deleted=0")
     public Comment getCommentById(String uid);
@@ -46,5 +47,8 @@ public interface CommentMapper {
 
     @Update("update comment set fartherContent=\"该评论已删除\" where fartherId=#{id}")
     public Integer delFartherContent(String id);
+
+    @Select("select * from comment where targetId=#{id}")
+    public List<Comment> listAppendingComment(String id);
 
 }

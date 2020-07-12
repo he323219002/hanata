@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author Jimmy He
@@ -22,4 +23,9 @@ public class Comment extends Model implements Serializable {
     private String fartherContent;
     private String userName;
     private String userAvatar;
+    // 1文章 2评论
+    private String target;
+    // 最高级的评论id
+    private String targetId;
+    private List<Comment> appending;
 }

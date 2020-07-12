@@ -91,9 +91,9 @@
       skipArticle(id){
         this.$router.push({path:'/article/detail',query:{'id':id}})
       },
-      receiveId(username,fid){
+      receiveId(username,fid,targetId){
         console.log(username);
-        this.$refs.new_comment.focus(username,fid)
+        this.$refs.new_comment.focus(username,fid,targetId)
       },
       async handleClick(){
 

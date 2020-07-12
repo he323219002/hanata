@@ -2,6 +2,7 @@ package com.jimmy.controller.system;
 
 import com.jimmy.exception.CustomException;
 import com.jimmy.service.system.FileService;
+import com.jimmy.servlet.PassToken;
 import com.jimmy.utils.HaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -26,6 +27,7 @@ public class FileController {
     @Autowired
     FileService fileService;
 
+    @PassToken
     @PostMapping(value = "/upload/",produces = MediaType.APPLICATION_JSON_VALUE)
     public HaResponse uploadFile(@RequestParam("file") MultipartFile file,String fileType) throws CustomException {
         Map<String, Object> map = fileService.uploadFile(file, fileType);
