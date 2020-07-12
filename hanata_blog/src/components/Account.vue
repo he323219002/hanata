@@ -73,7 +73,6 @@
     },
     methods:{
       handleAvatarSuccess(res, file) {
-        console.log(file);
         this.accountForm.avatar = picBaseURL + file.response.data.filePath;
       },
       beforeAvatarUpload(file) {
@@ -104,7 +103,6 @@
           inputErrorMessage: '邮箱格式不正确'
         }).then(({ value }) => {
           postRequest("user/reset",{'mail':value}).then((res)=>{
-            console.log(res);
             if (res.code===0){
               this.$message({
                 type: 'success',

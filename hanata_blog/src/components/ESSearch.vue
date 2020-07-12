@@ -48,7 +48,6 @@
         let q = this.$route.query.q;
         this.keyword=q
         let {data:res} = await postRequest('search',{'keyword':this.keyword});
-        console.log(res);
         this.res = res.data
       },
       async handleCurrentChange(val){
@@ -57,7 +56,6 @@
           "page": val+'',
         }
         let {data:res} = await postRequest("search",Pageparams);
-        console.log(res);
         this.res = res.data;
       },
       skipTo(type,id){

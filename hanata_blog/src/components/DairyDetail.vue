@@ -59,7 +59,6 @@
         this.dairy = res.data
       },
       receiveId(username,fid){
-        console.log(username);
         this.$refs.new_comment.focus(username,fid)
       },
     },

@@ -93,11 +93,10 @@
         let Pageparams = {
           "articleId":this.$route.query.id,
           "limit": val+'',
-          "kind":this.kind 
+          "kind":this.kind
         }
         let {data:res} = await postRequest("comment",Pageparams);
         this.comment = res.data;
-        console.log(res);
       },
       reply(username,fid,targetId){
         this.$emit('commenter',username,fid,targetId)

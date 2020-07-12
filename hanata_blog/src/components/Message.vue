@@ -59,7 +59,6 @@
       async getMessage(){
         let {data:res} = await postRequest('message');
         this.message=res.data
-        console.log(this.message);
       },
       async handleCurrentChange(val){
         let Pageparams = {

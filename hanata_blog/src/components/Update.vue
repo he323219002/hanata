@@ -58,9 +58,7 @@
 
         if (this.limit <= this.pages){
           let {data:res} = await postRequest('update',{'limit':this.limit+'','offset':'2'});
-          console.log(this.limit);
-          console.log(this.pages);
-          console.log(res);
+
           setTimeout(()=>{
             this.update=this.update.concat(res.data.list)
             this.count += res.data.list.length

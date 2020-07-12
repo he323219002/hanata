@@ -36,11 +36,9 @@
     },
     methods:{
       async submit(id,kind){
-        console.log(id);
-        console.log(kind);
+
         let {data:res} = await postRequest('comment/new',{'articleId':id,'content':this.content,'fartherId':this.fatherId,'kind':kind,'target':this.target,'targetId':this.targetId});
         checkToken(res)
-        console.log(res);
         this.$router.go(0)
       },
       focus(username,fatherId,targetId){

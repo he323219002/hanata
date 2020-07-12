@@ -60,7 +60,6 @@
     methods: {
       async submitForm() {
         let {data:res} = await postRequest('user/setPassword',this.passwordForm);
-        console.log(res);
         checkToken(res)
         if (res.code===0){
           this.$message({

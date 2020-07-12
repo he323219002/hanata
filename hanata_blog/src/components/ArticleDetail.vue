@@ -92,7 +92,6 @@
         this.$router.push({path:'/article/detail',query:{'id':id}})
       },
       receiveId(username,fid,targetId){
-        console.log(username);
         this.$refs.new_comment.focus(username,fid,targetId)
       },
       async handleClick(){

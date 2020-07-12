@@ -94,7 +94,6 @@
         let {data:res} = await postRequest('dairy',this.dairyForm);
         // console.log(res);
         this.dairy = res.data
-        console.log(this.dairy);
       },
       async handleCurrentChange(val){
         let Pageparams = {
