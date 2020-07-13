@@ -58,6 +58,7 @@ Vue.use(VueRouter)
 ]
 
 const router = new VueRouter({
+  base:'/manage/',
   mode:'history',
   routes
 })

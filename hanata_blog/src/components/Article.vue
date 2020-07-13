@@ -6,7 +6,7 @@
       </div>
 
       <div class="article_content">
-        摘要：{{item.content}}  <a class="read_all" :href="'/article/detail?id='+item.uid">阅读全文</a>
+        摘要：{{item.content}}  <a class="read_all" @click="goDetail(item.uid)">阅读全文</a>
       </div>
       <div class="space"></div>
 
@@ -84,6 +84,10 @@
         let {data:res} = await postRequest('article',this.articleForm);
         this.article = res.data
       },
+
+      goDetail(id){
+        this.$router.push({name:"ArticleDetail",query:{"id":id}})
+      },
       async handleCurrentChange(val){
         let Pageparams = {
           "limit": val+'',
@@ -127,6 +131,7 @@
     height: 30px;
   }
   .read_all{
+    cursor: pointer;
     color: saddlebrown;
   }
   .pagination{

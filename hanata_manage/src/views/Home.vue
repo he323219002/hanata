@@ -40,7 +40,6 @@
           {name: "标签管理", id: 4, icon: "el-icon-collection-tag", url: "/tag"},
           {name: "访问统计", id: 7, icon: "el-icon-s-data", url: "/record"},
           {name: "更新记录", id: 8, icon: "el-icon-share", url: "/update"},
-          {name: "主页图片", id: 9, icon: "el-icon-picture", url: "/img"},
           {name: "用户管理", id: 11, icon: "el-icon-user", url: "/user"},
         ]
       };

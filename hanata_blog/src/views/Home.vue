@@ -83,7 +83,7 @@
                 <el-submenu index="3">
                   <template slot="title">更多</template>
                   <el-menu-item @click="goUpdate">更新记录</el-menu-item>
-                  <el-menu-item @click="goMessage">我的消息</el-menu-item>
+                  <el-menu-item @click="goMessage" v-if="state==='1'">我的消息</el-menu-item>
                   <el-menu-item @click="subscribe">订阅本站</el-menu-item>
                   <el-menu-item @click="goAccount" v-if="state==='1'">个人中心</el-menu-item>
                 </el-submenu>

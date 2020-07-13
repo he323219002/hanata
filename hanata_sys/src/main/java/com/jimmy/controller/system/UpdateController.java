@@ -7,6 +7,7 @@ import com.jimmy.bean.Article;
 import com.jimmy.bean.UpdateRecord;
 import com.jimmy.exception.CustomException;
 import com.jimmy.service.system.UpdateService;
+import com.jimmy.servlet.PassToken;
 import com.jimmy.utils.HaResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -72,6 +73,7 @@ public class UpdateController {
         }
     }
 
+    @PassToken
     @PostMapping("")
     public HaResponse ListUpdate(@RequestBody Map<String,Object> qMap){
         String limit = (String)qMap.getOrDefault("limit", "1");

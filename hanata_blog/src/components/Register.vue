@@ -195,7 +195,6 @@
     z-index: 1;
     /*margin-top: 30px;*/
     transform: translate(-50%, -65%);
-    opacity: 100%;
     margin-left: 10px;
   }
 
