@@ -3,7 +3,8 @@ import Vue from 'vue'
 
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
+// axios.defaults.baseURL = 'http://127.0.0.1:8000/api/'
+axios.defaults.baseURL = 'http://www.hanata.top/api/'
 export let picBaseURL = 'https://hanata.oss-cn-hangzhou.aliyuncs.com/'
 Vue.prototype.$http = axios
 

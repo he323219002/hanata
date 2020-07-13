@@ -13,7 +13,7 @@
         <img :src="accountForm.avatar" class="avatar">
         <el-upload
                 class="avatar-uploader"
-                action="http://127.0.0.1:8000/api/upload/"
+                action="http://172.17.0.1/api/upload/"
                 :show-file-list="false"
                 :auto-upload="true"
                 :headers="token"

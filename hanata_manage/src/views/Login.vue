@@ -43,7 +43,7 @@
     data() {
       return {
         // captcha_src:"http://121.40.70.48/api/captcha?formId="+catchId,
-        captcha_src:"http://127.0.0.1:8000/api/captcha?formId="+catchId,
+        captcha_src:"http://www.hanata.top/api/captcha?formId="+catchId,
         loginFrom:{
           username:'',
           password:'',

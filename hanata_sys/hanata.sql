@@ -1,7 +1,6 @@
-CREATE DATABASE `hanatablog` DEFAULT CHARACTER SET utf8mb4 COLLATE set utf8mb4_general_ci;;
+CREATE DATABASE `hanatablog` DEFAULT CHARACTER SET utf8mb4;
 
 USE `hanatablog`;
-
 CREATE TABLE `user` (
 	`uid` varchar(32) PRIMARY KEY,
 	`createTime` datetime,
@@ -20,7 +19,7 @@ CREATE TABLE `user` (
 	`lastLoginDate` datetime DEFAULT NULL,
 	`role` char(1) DEFAULT '1',
 	`isActive` char(1) DEFAULT '1',
-	UNIQUE KEY unique_username (username),
+	UNIQUE KEY unique_username (username)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 
 
@@ -36,7 +35,7 @@ CREATE TABLE `article` (
 	`title` varchar(32) DEFAULT '',
 	`content` text,
 	-- 0草稿 1发布
-	`state` char(1) DEFAULT '1', 
+	`state` char(1) DEFAULT '1',
 	`categoryId` varchar(32) DEFAULT '',
 	`categoryName` varchar(32) DEFAULT '',
 	`likeCount` integer DEFAULT 0,
@@ -142,7 +141,7 @@ CREATE TABLE `message` (
 	`isRead` varchar(1) DEFAULT '0',
 	`userId` varchar(32),
 	`nickname` varchar(32),
-	`avatar` varchar(512),  
+	`avatar` varchar(512)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
 
 
@@ -172,7 +171,7 @@ CREATE TABLE `dairy` (
 	`title` varchar(32) DEFAULT '',
 	`content` text,
 	`tagId` varchar(32) DEFAULT '',
-	`state` char(1) DEFAULT '', 
+	`state` char(1) DEFAULT '',
 
 	`tagName` varchar(32) DEFAULT '',
 	`likeCount` integer DEFAULT 0,
@@ -217,6 +216,7 @@ CREATE TABLE `updateRecord` (
 	`version` varchar(24),
 	`content` varchar(512) DEFAULT ''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_general_ci;
+
 
 
 
